@@ -1,0 +1,16 @@
+<!--templete/header/index.wxml-->
+<!-- header -->
+<view class="new-header {{'color-'+type}}">
+    <view class="background"></view>
+    <view><view class="new-header-back" bindtap="back"><icon class="icons lajicom-xitongfanhui"></icon></view></view>
+    <view class="new-header-title">
+        <view class="f-left">
+            <view class="new-header-text">账单详情</view>
+        </view>
+        <view class="f-right" style="width:36rpx;height:36rpx;">
+            <!-- <icon class="font iSearch"></icon> -->
+        </view>
+    </view>
+    <view class="transform1"></view>
+    <view class="transform2"></view>
+</view>

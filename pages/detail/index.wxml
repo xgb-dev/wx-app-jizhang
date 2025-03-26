@@ -1,0 +1,46 @@
+<header type="white"></header>
+<view class="simple">
+    <view class="simple-info">
+        <view class="square">
+            <view class="icon-circle" style="background:{{info.iconbg}}"><icon class="icons iconfont jz{{info.icon}}"></icon></view>
+            <view class="sanjiao"></view>
+        </view>
+        <view class="simple-main">
+            <view class="fl">
+                <view class="simple-title">{{info.text}} - {{info.remark}}</view>
+                <view class="simple-date">{{info.create_time}}</view>
+            </view>
+            <view class="fr simple-amount">
+                {{info.type=='in'?'+':'- '}}￥
+                <text class="text">{{info.amount}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="attribute">
+    <view class="a-cell-group">
+        <view class="a-cell">
+            <view class="fl a-cell-title">账本类型</view>
+            <view class="fr a-cell-value">普通账本</view>
+        </view>
+        <!-- <view class="a-cell">
+            <view class="fl a-cell-title">记账人</view>
+            <view class="fr a-cell-value">朱正雷</view>
+        </view> -->
+        <view class="a-cell">
+            <view class="fl a-cell-title">备注</view>
+            <view class="fr a-cell-value">{{info.remark}}</view>
+        </view>
+        <!-- <view class="a-cell">
+            <view class="fl a-cell-title a-image-title">图片</view>
+            <view class="fr a-cell-value">
+                <image src="../../static/img/logo.png"></image>
+            </view>
+        </view> -->
+    </view>
+</view>
+<view class="bottom-fixed">
+    <view class="bottom-fixed-btn" bindtap="addTempleteFn">编辑账单</view>
+</view>
+
+<billadd show="{{addTemplete}}" initData="{{info}}" bindbillindexFn="billindexFn" itemid="{{info.id}}"></billadd>

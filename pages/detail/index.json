@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "billadd": "../../templete/billadd/index",
+    "header": "../../templete/header/index"
+  }
+}

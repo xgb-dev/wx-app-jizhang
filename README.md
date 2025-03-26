@@ -1,1 +1,1 @@
-# wx-app-jizhang
+#wxappjizhang

@@ -1,0 +1,9 @@
+var numberFn = {
+    moneyFormat: function(value) {
+        if(!value){
+            return 0;
+        }
+        return Number(value).toLocaleString();
+    }
+}
+module.exports = numberFn

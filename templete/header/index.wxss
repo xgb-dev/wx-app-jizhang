@@ -1,0 +1,81 @@
+/* templete/header/index.wxss */
+
+/* import font style*/
+@import '../../font/din/stylesheet.wxss';
+@import "../../font/action/iconfont.wxss";
+@import "../../font/default/iconfont.wxss";
+
+/* common style */
+.f-right {
+    float: right;
+}
+
+.f-left {
+    float: left;
+}
+/* 头部样式 */
+
+.new-header {
+    /* padding: 56rpx 30rpx 30rpx 30rpx; */
+    position: relative;
+    width: 100%;
+}
+.new-header .background {
+    content: '';
+    width: 100%;
+    height: 500rpx;
+    background: #5560f7;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.new-header-back {
+    font-size: 40rpx;
+    font-weight: bold;
+    padding-top: 56rpx;
+    margin-left: 30rpx;
+}
+
+.new-header-title{
+    margin-top: 20rpx;
+    overflow: hidden;
+    margin-left: 30rpx;
+}
+.new-header-text{
+    font-size: 42rpx;
+    font-weight: 500;
+}
+.color-white {
+    color: #fff;
+}
+.new-header-setting {
+    float: right;
+    font-size: 34rpx;
+    margin-top: 46rpx;
+}
+.transform1{
+    width: 180rpx;
+    height: 300rpx;
+    position: absolute;
+    opacity: .2;
+    background-color: #959bf1;
+    right: 0rpx;
+    top: 120rpx;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+  }
+  
+  .transform2{
+    width: 120rpx;
+    height: 200rpx;
+    position: absolute;
+    /* opacity: .2; */
+    background-image: linear-gradient( 90deg, rgba(255,255,255,.1) 30%, rgba(255,255,255,.01) 100%);
+    right: 130rpx;
+    top: 200rpx;
+    border-top-left-radius: 40rpx;
+    
+  }

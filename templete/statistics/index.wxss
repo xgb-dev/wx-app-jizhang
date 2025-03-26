@@ -1,0 +1,11 @@
+/* templete/statistics/index.wxss */
+.filter{
+    filter: blur(8px);
+}
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

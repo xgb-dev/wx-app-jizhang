@@ -1,0 +1,88 @@
+<!--templete/personal/index.wxml-->
+<wxs module="numberFn" src="../../filter/number.wxs"></wxs>
+<view class="{{filterChange?'filter show':''}} {{show ? 'show': 'hide'}}">
+    <view class="blue-bg">
+        <view class="before"></view>
+        <view class="after"></view>
+        <view class="transform1"></view>
+        <view class="transform2"></view>
+        <view class="user">
+            <!-- <view class="f-right" style="overflow: hidden;">
+                <view class="setting">
+                    <icon></icon>
+                    <icon></icon>
+                </view>
+            </view> -->
+            <view>
+                <view class="avatar f-left"><image src="{{userinfo.avatarUrl}}"></image></view>
+                <view class="nick-info f-right">
+                    <view class="nick-name">{{userinfo.nickName?userinfo.nickName: '昵称'}}</view>
+                    <view class="nick-tag">
+                        <text class="text-tag">记账新人</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="keeping">
+            <view class="k-item">
+                <view class="digtal">{{dayTotal}}</view>
+                <view class="text">记账天数</view>
+            </view>
+            <view class="k-item">
+                <view class="digtal">{{billTotal}}</view>
+                <view class="text">记账笔数</view>
+            </view>
+            <view class="k-item">
+                <view class="digtal">{{indexData.average?numberFn.moneyFormat(indexData.average):0.00}}</view>
+                <view class="text">日均支出</view>
+            </view>
+        </view>
+    </view>
+    
+    <view class="account-book">
+        <view class="book-header">
+            <view class="tab">
+
+            </view>
+        </view>
+        <view class="book-body">
+            <view>
+                <view class="b-item border">
+                    <view class="text"><text class="digtal year">{{year}}</text></view>
+                    <view><text class="digtal">{{month}}</text><text class="text-month">月份</text></view>
+                </view>
+                <view class="b-item">
+                    <view class="text">收入/元</view>
+                    <view class="digtal">￥{{indexData.in?indexData.in:'0'}}</view>
+                </view>
+                <view class="b-item">
+                    <view class="text">支出/元</view>
+                    <view class="digtal">￥{{indexData.out?indexData.out:'0'}}</view>
+                </view>
+                <view class="b-item">
+                    <view class="text">剩余/元</view>
+                    <view class="digtal">￥{{indexData.in - indexData.out}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- <view class="budget">
+        <view class="budget-header">
+            <view class="step-title">
+                <view class="f-left">
+                    <text class="square-shape"></text>
+                    <text class="square-shape opacitys"></text>
+                    <text class="budget-header-text">8月份预算</text>
+                </view>
+                <view class="f-right">
+                    <icon></icon>
+                </view>
+            </view>
+        </view>
+        <view class="budget-body">
+
+        </view>
+    </view> -->
+</view>

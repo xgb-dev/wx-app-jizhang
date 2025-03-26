@@ -1,0 +1,18 @@
+/**app.wxss**/
+.fl{float: left;}
+.fr{float: right;}
+page{
+  font-family:"PingFang SC", "微软雅黑", "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.main{
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+}
+@import "./font/default/iconfont.wxss"

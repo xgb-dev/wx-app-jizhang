@@ -1,0 +1,29 @@
+<!--templete/tabbar/tabbar.wxml-->
+<!-- action-bar -->
+<view class="action-bar">
+    <view class="action-bar-main">
+        <view class="action-left f-left">
+            <view class="action-item {{value[0]?'itemColor':''}}">
+                <view><icon class="font iWallet" bindtap="handleTap" data-id='0'></icon></view>
+                <text class="text" bindtap="handleTap" data-id='0'>记账</text>
+            </view>
+            <!-- <view class="action-item {{value[1]?'itemColor':''}}">
+                <view><icon class="font iGraph" bindtap="handleTap" data-id='1'></icon></view>
+                <text class="text" bindtap="handleTap" data-id='1'>统计</text>
+            </view> -->
+        </view>
+        <view class="action-center f-left">
+            <icon class="font iPlus" bindtap="handleTap" data-id='2'></icon>
+        </view>
+        <view class="action-right f-right">        
+            <!-- <view class="action-item {{value[3]?'itemColor':''}}">
+                <view><icon class="font iActivity" bindtap="handleTap" data-id='3'></icon></view>
+                <text class="text" bindtap="handleTap" data-id='3'>计划</text>
+            </view> -->
+            <view class="action-item {{value[4]?'itemColor':''}}">
+                <view><icon class="font iProfile" bindtap="handleTap" data-id='4'></icon></view>
+                <text class="text" bindtap="handleTap" data-id='4'>我的</text>
+            </view>
+        </view>
+    </view>
+</view>

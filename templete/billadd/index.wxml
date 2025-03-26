@@ -1,0 +1,140 @@
+<!--templete/billadd/index.wxml-->
+<view class="bill-add {{show?'show':'hide'}}">
+  <view style="margin:40rpx 180rpx;" class="{{tipText?'tip-alert tip-show': 'tip-alert'}}"><i-alert type="warning" show-icon>{{tipText}}!</i-alert></view>
+  <!-- <view class="bill-add-back" bindtap="back"><icon class="icons lajicom-xitongfanhui"></icon></view> -->
+  <view class="bill-add-info">
+    <view class="bill-add-info-header">
+      <view class="back" bindtap="back"><i-icon type="delete_fill" size="28"/></view>
+      <view class="center">
+        <view class="bill-add-title">记账流程</view>
+        <view class="bill-add-tip">根据内容完善下面的资料吧 ~</view>
+      </view>
+      <view class="close" bindtap="save"><i-icon type="success_fill" size="28"/></view>
+    </view>
+    <!-- add-item start -->
+    <view class="bill-add-list">
+      <view class="bill-add-item">
+        <view bindtap="selectOption" data-index="0" class="bill-add-box {{option[0].checked?'checked':''}} {{option[0].value?'value':''}}">
+          <view wx:if="{{!option[0].value}}" class="bill-add-icon">
+            <view class="bill-add-icon-copy">
+              <i-icon type="add" size="24" />
+            </view>
+          </view>
+          <view wx:else class="bill-value-icon" style="background:{{option[0].bg}};">
+            <icon class="iconfont jz{{option[0].icon}}"></icon>
+          </view>
+        </view>
+        <view class="bill-add-text">{{option[0].value?option[0].value:'类型'}}</view>
+      </view>
+      <!-- <view class="bill-add-item">
+        <view class="bill-add-box"></view>
+        <view class="bill-add-text">图片标注</view>
+      </view> -->
+      <view class="bill-add-item">
+        <view bindtap="selectOption" data-index="1" class="bill-add-box {{option[1].checked?'checked':''}} {{option[1].value?'value':''}}">
+          <view wx:if="{{!option[1].value}}" class="bill-add-icon">
+            <view class="bill-add-icon-copy">
+              <i-icon type="add"  size="24"/>
+            </view>
+          </view>
+          <view wx:else class="bill-value-date bill-value-icon" style="background: #ffc41e;line-height: 76rpx;">
+            <i-icon type="activity_fill" size="30" />
+            <!-- <text>1012</text> -->
+          </view>
+        </view>
+        <view class="bill-add-text">日期</view>
+      </view>
+      <view class="bill-add-item">
+        <view bindtap="selectOption" data-index="2" class="bill-add-box {{option[2].checked?'checked':''}} {{option[2].value?'value':''}}">
+          <view wx:if="{{!option[2].value}}" class="bill-add-icon">
+            <view class="bill-add-icon-copy">
+              <i-icon type="add"  size="24"/>
+            </view>
+          </view>
+          <view wx:else class="bill-value-icon" style="background: #FD6B6C;line-height: 76rpx;">
+            <i-icon type="transaction_fill" size="38"/>
+          </view>
+        </view>
+        <view class="bill-add-text">金额</view>
+      </view>
+      <!-- <view class="bill-add-item">
+        <view bindtap="selectOption" data-index="3" class="bill-add-box {{option[3].checked?'checked':''}} {{option[3].value?'value':''}}">
+          <view wx:if="{{!option[3].value}}" class="bill-add-icon">
+            <view class="bill-add-icon-copy">
+              <i-icon type="add"  size="24"/>
+            </view>
+          </view>
+          <view wx:else class="bill-value-icon" style="background: #FD6B6C;">
+            <i-icon type="financial_fill" size="30"/>
+          </view>
+        </view>
+        <view class="bill-add-text">备注</view>
+      </view> -->
+    </view>
+  <!-- add-item end -->
+
+    <!-- area start -->
+    <view class="bill-add-area">
+      <view class="bill-add-area-main">
+        <view class="bill-add-way {{billType=='in'?'in':'out'}}" bindtap="billType">
+          <text>{{billType=='in'?'收':'支'}}</text>
+        </view>
+        <view class="bill-add-input">
+          <view wx:if="{{filter != true}}" class="input-value" bindtap="inputFocus">{{option[2].value?option[2].value:'输入金额...'}}</view>
+          <input wx:else class="input-info {{filter?'input-show':''}}" value="{{option[2].value}}" bindinput="bindKeyInput" type="digit" focus="{{filter}}" bindfocus="focus" bindblur="blur" placeholder="输入金额..." cursor-spacing="100"></input>
+        </view>
+        <view class="bill-add-amount">
+          <text>{{option[2].value}}</text>
+        </view>
+        <!-- <view class="bill-add-voice">
+          <i-icon type="translation" size="28"/>
+        </view> -->
+      </view>
+    </view>
+    <!-- area end -->
+
+    <!-- select start -->
+    <view style="background:#fff;">
+      <view class="page-section page-section-spacing" style="{{inputShow?'height:0;':'auto'}}">
+        <!-- swiper start -->
+        <view class="{{option[0].checked?'page-section-show':'page-section-hide'}}">
+          <scroll-view scroll-y="true" style="height: 200px;" >
+            <view class="icon-list">
+              <block wx:for="{{iconList.listOut}}" wx:for-item="item" wx:key="icon">
+                <view class="icon-item">
+                  <view class="icon-item-box" style="background-color:{{item.color}};" bindtap="selectIcon" data-index="{{index}}">
+                    <icon class="iconfont jz{{item.icon}}"></icon>
+                  </view>
+                  <view class="icon-item-text">{{item.text}}</view>
+                </view>
+              </block>
+            </view>
+          </scroll-view>
+          <view class="ellipsis" bindtap="skip" data-index="0">略 过</view>
+        </view>
+        
+        <view class="{{option[1].checked?'page-section-show':'page-section-hide'}}">
+          <picker-view indicator-style="height: 50px;" style="width: 100%; height: 200px;" value="{{value}}" bindchange="bindChange">
+            <picker-view-column>
+              <view wx:for="{{years}}" wx:key="item" style="line-height: 50px; text-align: center;background:#474948;color: #fff;">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{months}}" wx:key="item" style="line-height: 50px; text-align: center;background:#474948;color: #fff;">{{item}}月</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{days}}" wx:key="item" style="line-height: 50px; text-align: center;background:#474948;color: #fff;">{{item}}日</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view class="icon-container" style="line-height: 50px; text-align: center;background: #5560f6;color: #fff;" bindtap="selectTime">
+                <i-icon type="success_fill" size="30"/> 确定
+              </view>
+            </picker-view-column>
+          </picker-view>
+          <view class="ellipsis" bindtap="skip" data-index="1">略 过</view>
+        </view>
+      </view>
+    </view>
+    <!-- select end -->
+  </view>
+</view>
+

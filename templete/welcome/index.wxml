@@ -1,0 +1,35 @@
+<!-- welcome page -->
+<view class='banner' style=''>
+    <view style="color: #fff;display: inline-block;margin-top: 400rpx;">
+        <image style="width:60px;height: 60px;" src="../../static/img/logo.png"></image>
+        <!-- <view style="color: #333;font-size:24rpx;font-weight:bold;margin-top:10rpx;">有 声 · 帐 单</view> -->
+        <view style="color: #333;font-size:24rpx;font-weight:bold;margin-top:10rpx;">有 帐 记</view>
+        <view class="box">
+            <view class="yinjie one"></view>
+            <view class="yinjie two"></view>
+            <view class="yinjie three"></view>
+            <view class="yinjie four"></view>
+            <view class="yinjie five"></view>
+            <view class="yinjie six"></view>
+            <view class="yinjie seven"></view>
+            <view class="yinjie six"></view>
+            <view class="yinjie five"></view>
+            <view class="yinjie four"></view>
+            <view class="yinjie three"></view>
+            <view class="yinjie two"></view>
+            <view class="yinjie one"></view>
+        </view>
+    </view>
+    <view style="position:absolute;bottom: 150rpx;font-size:24rpx;color:#ccc;text-align:center;width:100%;">
+        <!-- <i-button i-class="i-btn" inline="true" type="primary" bindtap="swiperbanner">开始使用</i-button> -->
+        <view style="width:25%;margin: 0 auto;">
+            <button i-class="i-btn"
+             inline="true" 
+             type="primary" 
+             id='UserInfo' 
+             open-type="getUserInfo" 
+             bindgetuserinfo="getUserInfo" style="background:#3C8CE7;font-size:28rpx;">授权登录</button>
+        </view>
+    </view>
+    <!-- <view style="position:absolute;bottom: 100rpx;font-size:24rpx;color:#ccc;text-align:center;width:100%;">使用微信面对面翻译</view> -->
+</view>

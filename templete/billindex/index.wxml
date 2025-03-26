@@ -1,0 +1,143 @@
+<wxs module="numberFn" src="../../filter/number.wxs"></wxs>
+<view class="initLoad" style="display: {{initShow?'block': 'none'}};">
+    <div class="content">
+        <div class="loading">
+            <view class="{{initShow?'p':''}}">loading</view>
+            <view class="{{initShow?'span':''}}"></view>
+        </div>
+    </div>
+    <!-- <view class="spinner">
+        <view class="rect rect1"></view>
+        <view class="rect rect2"></view>
+        <view class="rect rect3"></view>
+        <view class="rect rect4"></view>
+        <view class="rect rect5"></view>
+    </view>
+    <view class="init-text">有 账 记</view> -->
+</view>
+<view class="{{filterChange?'filter show':''}} {{show ? 'show': 'hide'}}">
+<!-- header -->
+<view class="new-header">
+    <view class="f-left" style="margin-right: 20rpx;">
+        <view>
+            <icon class="icons lajicom-duoyun" style="font-size:80rpx;"></icon>
+        </view>
+    </view>
+    <view class="f-left">
+        <view class="new-header-tip">Hi,{{nowInfo.welcomeTimes}}</view>
+        <view class="new-header-date">{{nowInfo.date}} {{nowInfo.weather}}晴转多云</view>
+    </view>
+    <!-- <view class="new-header-setting" style="float:right;">设置</view> -->
+</view>
+
+<!-- <view>
+    <view class="scroll-container">
+        <scroll-view
+            class="scroll-view_H"
+            scroll-x="true"
+            style="width: 100%;white-space: nowrap"
+            scroll-left="{{navScroll}}"
+            bindscroll="bindscroll">
+            <view
+            wx:for="{{book}}"
+            wx:for-item="item"
+            wx:key="{{item.id}}"
+            class="scroll-view-item_H {{item.checked?'checked':''}}"
+            bindtap="brandFn"
+            data-id="{{item.id}}"
+            data-index="{{index}}">
+                <icon class="font iBookmark"></icon>
+                <view class="font-box"><icon class="font iWallet"></icon></view>
+                <text class="text">{{item.title}}</text>
+            </view>
+            <view class="scroll-view-item_H lastBook" bindtap="lastBook">
+                <icon class="font iBookmark"></icon>
+                <view class="font-box"><icon class="font iWallet"></icon></view>
+                <text class="text">添加账本</text>
+            </view>
+        </scroll-view>
+    </view>
+</view> -->
+
+
+
+<!-- month amount -->
+<view class="month-info">
+    <view class="canvasView">
+        <!-- <canvas type="2d" id="myCanvas" style="width: 100%;"></canvas> -->
+    </view>
+    <view class="sanjiao"></view>
+    <view class="month-info-box">
+        <view class="month-info-main">
+            <view class="month-top">
+                <view class="f-left">
+                    <view class="month-out-amount">{{numberFn.moneyFormat(aOUT?aOUT:0)}}</view>
+                </view>
+                <view class="f-right">
+                    <view class="month-in">当月收入/元 : <text>{{numberFn.moneyFormat(aIN?aIN:0)}}</text></view>
+                </view>
+            </view>
+            <view class="month-foot">
+                <view class="f-left">
+                    <view class="month-out-text">当月支出/元</view>
+                </view>
+                <view class="f-right">
+                    <view class="month-average">平均支出/元 : <text>{{numberFn.moneyFormat(average?average:0)}}</text></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view>
+    <block wx:for="{{accountList}}" wx:for-item="cell" wx:key="title">
+    <!-- title -->
+    <view class="step-title">
+        <view class="f-left">
+            <text class="square-shape"></text>
+            <text class="square-shape opacitys"></text>
+            <text class="today-text">{{cell.title}}</text>
+        </view>
+        <view class="f-right">
+            <text class="today-amount">收: <text class="text">{{numberFn.moneyFormat(cell.in)}}</text> | 支: <text class="text">{{numberFn.moneyFormat(cell.out)}}</text></text>
+        </view>
+    </view>
+    <!-- list -->
+    <view class="list">
+        <view class="list-main">
+            <block wx:for="{{cell.list}}" wx:for-item="item" wx:key="_id">
+                <view class="item" bindtap='detail' data-id="{{item._id}}">
+                    <view class='b-icon-box f-left'>
+                        <view class="b-icon-circle list-item{{index}}" style="background:{{item.iconbg?item.iconbg:'#333'}}">
+                            <icon class="iconfont jz{{item.icon}}"></icon>
+                        </view>
+                    </view>
+                    <view class='b-text-box f-left'>
+                        <view class="f-left">
+                            <view class='item-remarks'>{{item.remarks?item.remarks:item.text}}</view>
+                            <view class='item-date'>{{item.create_time}}</view>
+                        </view>
+                        <text class="item-amount f-right {{item.type}}">{{item.type=='in'?'+':'- '}}{{numberFn.moneyFormat(item.amount)}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!-- list end -->
+    </block>
+</view>
+<view wx:if="{{accountList.length > 0}}" style="height: 200rpx;margin-bottom:100rpx;width: 100%;">
+    <view style="width: 50%;margin: 0 auto;" wx:if="{{more}}">
+        <i-button shape="circle" size="small" bind:click="loadMore" i-class="colors" loading="{{loadingBtn}}">加载更多</i-button>
+    </view>
+    <view wx:else>
+        <i-divider class='i-divider'>没有更多了...</i-divider>
+    </view>
+</view>
+<view class="empty" wx:else>
+    <image src="../../static/img/empty.png" style="width: 174px;height: 174px;"></image>
+    <view class="text">您还没有开始记账哦</view>
+    <view class="text">点击下方“+”开始记账吧</view>
+</view>
+
+</view>

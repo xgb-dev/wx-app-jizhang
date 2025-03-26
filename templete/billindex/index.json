@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "i-button": "../../dist/button/index",
+        "i-divider": "../../dist/divider/index"
+    }
+    
+}

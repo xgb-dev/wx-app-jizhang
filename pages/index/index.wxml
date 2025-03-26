@@ -1,0 +1,11 @@
+<billindex show="{{tabbar[0]}}" bind:indexDataFn="indexDataFn" from="{{addSave}}" filterChange="{{tabbar[2]}}"></billindex>
+
+<billadd show="{{tabbar[2]}}" bind:billindexFn="billindexFn" catchtouchmove="catchtouchmove"></billadd>
+
+<user show="{{tabbar[4]}}" from="{{getIndexData}}" filterChange="{{tabbar[2]}}"></user>
+
+<action-bar bindchangeBar="changeBar" value="{{tabbar}}"></action-bar>
+
+<welcome wx:if="{{swiperbanner}}" bind:welcomeFn="welcomeFn"></welcome>
+
+<!-- <statistics show="{{tabbar[1]}}" filterChange="{{tabbar[2]}}"></statistics> -->

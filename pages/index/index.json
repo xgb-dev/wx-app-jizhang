@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "i-button": "../../dist/button/index",
+        "i-divider": "../../dist/divider/index",
+        "i-icon": "../../dist/icon/index",
+        "action-bar": "../../templete/tabbar/index",
+        "billindex": "../../templete/billindex/index",
+        "billadd": "../../templete/billadd/index",
+        "user": "../../templete/user/index",
+        "welcome": "../../templete/welcome/index"
+    }
+}

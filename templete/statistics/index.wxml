@@ -1,0 +1,4 @@
+<!--templete/statistics/index.wxml-->
+<view class="{{filterChange?'filter show':''}} {{show ? 'show': 'hide'}}">
+    统计
+</view>
